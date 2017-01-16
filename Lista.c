@@ -59,7 +59,9 @@ void apagaPolinomio(Poli **f){
   }
 
 }
-
+Poli* criaPolinomioVazio(){
+       return NULL;
+}
 void adicionaTermo(Poli **f,int coeficiente,int expoente){
     Poli *aux = *f;
     Poli *aux2;
@@ -149,25 +151,12 @@ int coeficiente(Poli *f,int expoente){
 
 Poli *somaPolinomios(Poli *f,Poli *g){
     Poli *resultado;
-    for( ;f!=NULL ;f->prox){
-        for( ;g!=NULL ;g->prox){
-            if(f->exp == g->exp){
-                resultado->exp = f->exp;
-                resultado->coe = f->coe + g->coe;
-            }else{
-                resultado->exp = f->exp;
-                resultado->coe = f->coe;
-            }
-        }
-    }
-        for( ;g!=NULL ;g->prox){
-            for( ;f!=NULL ;f->prox){
-            if(f->exp != g->exp){
-                resultado->exp = g->exp;
-                resultado->coe = g->coe;
-            }
-        }
-    }
+    for(;f!=NULL ; f = f->prox){
+      adicionaTermo(&resultado, f->coe, f->exp);
+     }
+     for(;g!=NULL ; g = g->prox){
+      adicionaTermo(&resultado, g->coe, g->exp);
+     }
 
  return resultado;
 }
