@@ -51,6 +51,7 @@ Poli *criaPolinomio(int valores[], int tam){
 }
 
 void apagaPolinomio(Poli **f){
+
   Poli *aux = *f;
   while(*f!=NULL){
     *f = (*f)->prox;
@@ -60,6 +61,7 @@ void apagaPolinomio(Poli **f){
 
 }
 Poli* criaPolinomioVazio(){
+
        return NULL;
 }
 void adicionaTermo(Poli **f,int coeficiente,int expoente){
@@ -150,6 +152,7 @@ int coeficiente(Poli *f,int expoente){
 }
 
 Poli *somaPolinomios(Poli *f,Poli *g){
+
     Poli *resultado;
     for(;f!=NULL ; f = f->prox){
       adicionaTermo(&resultado, f->coe, f->exp);
@@ -160,8 +163,18 @@ Poli *somaPolinomios(Poli *f,Poli *g){
 
  return resultado;
 }
-
 Poli *subPolinomios(Poli *f,Poli *g){
+    Poli *resultado;
+    for(;f!=NULL ; f = f->prox){
+      adicionaTermo(&resultado, f->coe, f->exp);
+     }
+     for(;g!=NULL ; g = g->prox){
+      adicionaTermo(&resultado,-(g->coe), g->exp);
+     }
+
+ return resultado;
+}
+/*Poli *subPolinomios(Poli *f,Poli *g){
     Poli *resultado;
     for( ;f!=NULL ;f->prox){
         for( ;g!=NULL ;g->prox){
@@ -185,7 +198,7 @@ Poli *subPolinomios(Poli *f,Poli *g){
 
  return resultado;
 
-}
+}*/
 
 Poli *multPolinomios(Poli *f,Poli *g){
     Poli *resultado;
