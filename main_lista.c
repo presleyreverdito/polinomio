@@ -14,9 +14,9 @@ int main(){
     printf("# Prof. Frederico S. Oliveira\n");
     printf("# Autor: Presley Demuner Reverdito RGA: 201511902022\n");
     printf("################################################\n");
-    char pergunta;
+    char pergunta,funcao;
     int opcao,tamanho1,tamanho2,i,expoente,escalar;
-    Poli *f,*g,*derivado,*funcao;
+    Poli *f,*g,*derivado;
     float x;
     while(pergunta == 'y' || pergunta == 'Y'){
         printf("Digite o tamanho do Polinomio F");
@@ -64,7 +64,10 @@ int main(){
              printf("Insira polinomio, o expoente e o coeficiente desejado\n");
              printf("f Para o primeiro e g para o segundo\n");
              scanf("%c %d %d",funcao, &expoente, &escalar);
-             adicionaTermo(funcao, expoente,escalar);
+             if (funcao =='f')
+                adicionaTermo(*f, expoente,escalar);
+             else
+                adicionaTermo(*g, expoente,escalar);
              printf("Termo adicionado\n");
            break;
 
@@ -72,7 +75,10 @@ int main(){
              printf("Insira o polinomio e o grau a ser exluido\n");
              printf("f Para o primeiro e g para o segundo\n");
              scanf("%c %d",funcao, &expoente);
-             apagaTermo(funcao,expoente);
+             if (funcao =='f')
+                apagaTermo(*f,expoente);
+            else
+                apagaTermo(*g,expoente);
              printf("Termo apagado!");
            break;
 
@@ -80,7 +86,10 @@ int main(){
              printf("Qual polinomio deseja saber o grau?\n");
              printf("f Para o primeiro e g para o segundo\n");
              scanf("%c",funcao);
-             printf("%d",grauPolinomio(funcao));
+             if (funcao =='f')
+                printf("%d",grauPolinomio(f));
+             else
+                printf("%d",grauPolinomio(g));
 
            break;
 
@@ -88,7 +97,10 @@ int main(){
              printf("Insira o polinomio e o grau que deseja para saber o coefiente?\n");
              printf("f Para o primeiro e g para o segundo\n");
              scanf("%c %d",funcao,&expoente);
-             printf("O coeficiente é:%d\n",coeficiente(funcao,expoente));
+             if (funcao =='f')
+                printf("O coeficiente é:%d\n",coeficiente(f,expoente));
+             else
+                printf("O coeficiente é:%d\n",coeficiente(g,expoente));
            break;
 
            case 5:
@@ -107,7 +119,10 @@ int main(){
              printf("Qual polinomio deseja derivar?");
              printf("f Para o primeiro e g para o segundo\n");
              scanf("%c",funcao);
-             derivado = derivaPolinomio(funcao);
+             if (funcao =='f')
+                derivado = derivaPolinomio(f);
+             else
+                derivado = derivaPolinomio(g);
              printf("O polinomio derivado é: ");
              imprimePolinomio(derivado);
            break;
@@ -116,7 +131,10 @@ int main(){
              printf("Insere o polinomio e o valor de x\n");
              printf("f Para o primeiro e g para o segundo\n");
              scanf("%c %d",funcao,&x);
-             valorPolinomio(funcao,x);
+             if (funcao =='f')
+                valorPolinomio(f,x);
+             else
+                valorPolinomio(g,x);
 
            break;
 
