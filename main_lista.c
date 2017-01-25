@@ -158,7 +158,7 @@ int main(){
 
     }
 printf("\nPrograma finalizado/n");
-
+return 0;
 }
 
 
