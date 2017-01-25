@@ -6,8 +6,12 @@
  * @brief Definicao do TAD poli
  * Editado por Presley Demuner Reverdito.
  */
-typedef struct polinomio {
+ #ifndef POLI_H_INCLUDED
+#define POLI_H_INCLUDED
+typedef struct _polinomio {
   int coe;
   int exp; /**< item armazenado no poli */
-  struct polinomio *prox; /**< ponteiro para o proximo poli. */
+  struct _polinomio *prox; /**< ponteiro para o proximo poli. */
 } Poli;
+
+#endif // POLI_H_INCLUDED
