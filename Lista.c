@@ -49,7 +49,6 @@ Poli *criaPolinomio(int valores[], int tam){
 
     return p;
 }
-
 void apagaPolinomio(Poli **f){
 
   Poli *aux = *f;
@@ -108,7 +107,6 @@ void adicionaTermo(Poli **f,int coeficiente,int expoente){
     p->prox = NULL;
     aux2->prox = p;
 }
-
 void apagaTermo(Poli **p,int x){
     Poli *aux=*p;
     Poli *anterior;
@@ -129,7 +127,6 @@ void apagaTermo(Poli **p,int x){
     printf("Termo inexistente");
     return;
 }
-
 int grauPolinomio(Poli *f){
     if(f ==NULL){
         return -1;
@@ -138,7 +135,6 @@ int grauPolinomio(Poli *f){
 
 
 }
-
 int coeficiente(Poli *f,int expoente){
     while(f!= NULL){
         if(f->exp != expoente){
@@ -150,7 +146,6 @@ int coeficiente(Poli *f,int expoente){
     }
 
 }
-
 Poli *somaPolinomios(Poli *f,Poli *g){
 
     Poli *resultado;
@@ -174,32 +169,6 @@ Poli *subPolinomios(Poli *f,Poli *g){
 
  return resultado;
 }
-/*Poli *subPolinomios(Poli *f,Poli *g){
-    Poli *resultado;
-    for( ;f!=NULL ;f->prox){
-        for( ;g!=NULL ;g->prox){
-            if(f->exp == g->exp){
-                resultado->exp = f->exp;
-                resultado->coe = f->coe - g->coe;
-            }else{
-                resultado->exp = f->exp;
-                resultado->coe = f->coe;
-            }
-        }
-    }
-        for( ;g!=NULL ;g->prox){
-            for( ;f!=NULL ;f->prox){
-            if(f->exp != g->exp){
-                resultado->exp = g->exp;
-                resultado->coe = -g->coe;
-            }
-        }
-    }
-
- return resultado;
-
-}*/
-
 Poli *multPolinomios(Poli *f,Poli *g){
     Poli *resultado;
     for( ;f != NULL ;f->prox){
@@ -211,7 +180,6 @@ Poli *multPolinomios(Poli *f,Poli *g){
 
  return resultado;
 }
-
 Poli *derivaPolinomio(Poli *f){
     Poli *resultado;
     for( ;f!=NULL;f->prox){
@@ -220,7 +188,6 @@ Poli *derivaPolinomio(Poli *f){
     }
  return resultado;
 }
-
 float valorPolinomio(Poli *f,float x){
     float resultado;
     for(;f != NULL; f->prox){
@@ -229,11 +196,13 @@ float valorPolinomio(Poli *f,float x){
     }
  return resultado;
 }
-
 void imprimePolinomio(Poli *f){
-    if(f->coe>0)
-        printf("+%d",f->coe);
-    else
-        printf("%d",f->coe);
-
+    while(f!=NULL){
+        if(f->coe>0)
+            printf("+%d^x%d",f->coe,f->exp);
+        else
+            printf("%dx^%d",f->coe,f->exp);
+        f=f->prox;
+    }
+    printf("\n");
 }
