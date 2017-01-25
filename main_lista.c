@@ -19,6 +19,7 @@
         printf("7- Multiplicar polinomio?\n");
         printf("8- Derivar um polinomio?\n");
         printf("9- Calcular o polinomio com o valor real x\n");
+        printf("10- Imprimir um polinomio?");
  }
  void cabecalho(){
     printf("################################################\n");
@@ -31,32 +32,32 @@
  }
 int main(){
     cabecalho();
-    char pergunta ,funcao= NULL;
+    char pergunta=NULL ,funcao= NULL;
     int opcao,tamanho1,tamanho2,i,expoente,escalar;
-    Poli *f,*g,*derivado;
+    Poli *f,*g,*derivado,*somado,*subtraido,*multiplicado;
     float x;
     pergunta='y';
     while(pergunta == 'y'){
-        printf("Digite o tamanho do Polinomio F");
+        printf("Digite o tamanho do Polinomio F\n");
         scanf("%d",&tamanho1);
         int vetor1[tamanho1];
         if(tamanho1>MAX){
             printf("Valor excedido");
             return;
         }
-        printf("Digite os valores do Polinomio F");
+        printf("Digite os valores do Polinomio F\n");
         for(i=0;i<tamanho1;i++){
             scanf("%d",&vetor1[i]);
         }
 
-        printf("Digite o tamanho do Polinomio G");
+        printf("Digite o tamanho do Polinomio G\n");
         scanf("%d",&tamanho2);
         int vetor2[tamanho2];
         if(tamanho2>MAX){
             printf("Valor excedido");
             return;
         }
-        printf("Digite os valores do Polinomio G");
+        printf("Digite os valores do Polinomio G\n");
         for(i=0;i<tamanho2;i++){
             scanf("%d",&vetor2[i]);
         }
@@ -114,15 +115,18 @@ int main(){
            break;
 
            case 5:
-             printf("A soma de F+G é:%d\n",somaPolinomios(f,g));
+
+             imprimePolinomio(somaPolinomios(f,g));
            break;
 
            case 6:
-             printf("A subtracao de F-G é:%d\n",subPolinomios(f,g));
+
+             imprimePolinomio(subPolinomios(f,g));
            break;
 
            case 7:
-             printf("A multiplicacao de F*G é:%d\n",multPolinomios(f,g));
+
+             imprimePolinomio(multPolinomios(f,g));
            break;
 
            case 8:
@@ -145,18 +149,29 @@ int main(){
                 valorPolinomio(f,x);
              else
                 valorPolinomio(g,x);
+           case 10:
+             printf("Insere o polinomio que deseja imprimir\n");
+             printf("f Para o primeiro e g para o segundo\n");
+             scanf("%c",&funcao);
+             if (funcao =='f')
+                imprimePolinomio(f);
+             else
+                imprimePolinomio(g);
 
            break;
 
 
-            printf("Deseja continuar?(y/n)");
-            scanf("%c",&pergunta);
+
 
         }
 
-    }
-printf("\nPrograma finalizado/n");
+        printf("Deseja continuar?(y/n)\n");
+        scanf("%c",&pergunta);
 
+    }
+printf("Programa finalizado\n");
+apagaPolinomio(&f);
+apagaPolinomio(&g);
 }
 
 
