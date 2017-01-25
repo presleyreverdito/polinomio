@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "Lista.h"
+#include"Poli.h"
 #include <math.h>
 
 Poli *criaPolinomio(int valores[], int tam){

@@ -6,15 +6,23 @@
  *  @author Frederico S. Oliveira
  * Editado por Presley Demuner Reverdito.
  */
+#ifndef LISTA_H_INCLUDED
+#define LISTA_H_INCLUDED
 #include "Poli.h"
+#include"Lista.c"
 /**
  * @brief Definicao do TAD lista
  */
-typedef struct _lista{
-  Poli *primeiro; /**< ponteiro para o primeiro elemento da lista. */
-  //Poli *ultimo; /**< ponteiro para o ultimo elemento da lista. */
-} lista;
 
+/*typedef struct _lista{
+  struct _polinomio *primeiro; /**< ponteiro para o primeiro elemento da lista.
+  //Poli *ultimo; < ponteiro para o ultimo elemento da lista
+} lista;*/
+typedef struct _polinomio {
+  int coe;
+  int exp; /**< item armazenado no poli */
+  struct _polinomio *prox; /**< ponteiro para o proximo poli. */
+} Poli;
 /**
  * @brief Cria um novo polinomio.
  * @param Recebe uma lista de inteiros contendo o grau e coeficiente de cada termo.
@@ -84,3 +92,4 @@ float valorPolinomio(Poli *f,float x);
  * @brief Escreve na tela o polinomio ordenado.
  */
 void imprimePolinomio(Poli *f);
+#endif // LISTA_H_INCLUDED

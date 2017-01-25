@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "Lista.h"
+#include "Lista.c"
+#include"Poli.h"
 #define MAX 20
 /*
  * Programa que realiza operações com polinomios
@@ -39,8 +41,8 @@ int main(){
     while(pergunta == 'y'){
         printf("Digite o tamanho do Polinomio F");
         scanf("%d",&tamanho1);
-        int vetor1[tamanho1];
-        if(tamanho1>MAX){
+        int *vetor1 = malloc(sizeof(int) * tamanho1);
+        if(tamanho1 > MAX){
             printf("Valor excedido");
             return;
         }
@@ -51,7 +53,7 @@ int main(){
 
         printf("Digite o tamanho do Polinomio G");
         scanf("%d",&tamanho2);
-        int vetor2[tamanho2];
+        int *vetor2 = malloc(sizeof(int) * tamanho2);
         if(tamanho2>MAX){
             printf("Valor excedido");
             return;
