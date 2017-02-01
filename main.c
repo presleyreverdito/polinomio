@@ -32,7 +32,7 @@ void menu()
     printf("7- Multiplicar polinomio?\n");
     printf("8- Derivar um polinomio?\n");
     printf("9- Calcular o polinomio com o valor real x\n");
-    printf("10- Imprimir um polinomio?");
+    printf("10- Imprimir um polinomio?\n");
 }
 void cabecalho()
 {
@@ -181,9 +181,10 @@ int main()
             flush();
             scanf("%c %f",&funcao,&x);
             if (funcao =='f')
-                valorPolinomio(f,x);
+               printf("%f\n",valorPolinomio(f,x));
             else
-                valorPolinomio(g,x);
+               printf("%f\n",valorPolinomio(g,x));
+        break;
         case 10:
             printf("Insere o polinomio que deseja imprimir\n");
             printf("f Para o primeiro e g para o segundo\n");

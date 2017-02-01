@@ -229,13 +229,15 @@ Poli *subPolinomios(Poli *f,Poli *g)
 }
 Poli *multPolinomios(Poli *f,Poli *g)
 {
+    int coeficiente,expoente;
     Poli *resultado = criaPolinomioVazio();
     for( ; f != NULL ; f = f->prox)
     {
         for( ; g!=NULL ; g = g->prox)
         {
-            resultado->exp = f->exp + g->exp;
-            resultado->coe = f->coe * g->coe;
+            expoente = f->exp + g->exp;
+            coeficiente = f->coe * g->coe;
+            adicionaTermo(&resultado,coeficiente,expoente);
         }
     }
 
