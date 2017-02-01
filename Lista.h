@@ -1,13 +1,6 @@
-/** @file Lista.h
- *  @brief Prototipos das funcoes referentes ao tipo abstrato de dado Lista Simplesmente Encadeada.
- *
- *  Este arquivo contem os prototipos das funcoes do tipo abstrato de dado Lista.
- *
- *  @author Frederico S. Oliveira
- * Editado por Presley Demuner Reverdito.
- */
 #ifndef LISTA_H_INCLUDED
 #define LISTA_H_INCLUDED
+
 #include "Poli.h"
 
 /**
@@ -20,12 +13,9 @@
   //Poli *ultimo; < ponteiro para o ultimo elemento da lista
 } lista;*/
 
->>>>>>> 281b7d713561adace5ae870997758a8fa83584d2
-/**
- * @brief Cria um novo polinomio.
- * @param Recebe uma lista de inteiros contendo o grau e coeficiente de cada termo.
- */
-Poli *criaPolinomio(int valores[], int tam);
+
+Poli* criaPolinomioVazio();
+
 /**
  * @brief Verifica se a lista passada como parametro estah vazia.
  * @param lista variavel do tipo lista. Observe que nao eh um ponteiro.
@@ -43,6 +33,12 @@ void adicionaTermo(Poli **f,int coeficiente,int expoente);
  *
  * @param Recebe um inteiro que indica o grau do termo a ser apagado.(poiscao)
  */
+/**
+ * @brief Cria um novo polinomio.
+ * @param Recebe uma lista de inteiros contendo o grau e coeficiente de cada termo.
+ */
+Poli *criaPolinomio(int valores[], int tam);
+
 void apagaTermo(Poli **f,int x);
 /**
  * @brief Retorna o grau do polinomio.
@@ -79,4 +75,5 @@ float valorPolinomio(Poli *f,float x);
  * @brief Escreve na tela o polinomio ordenado.
  */
 void imprimePolinomio(Poli *f);
+
 #endif // LISTA_H_INCLUDED
